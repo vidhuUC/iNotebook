@@ -37,8 +37,9 @@ router.post('/createuser', [
         const data = { user: { id: user.id } };
 
         const token = jwt.sign(data, JWT_SECRET);
+        const success = true;
 
-        res.json({token});
+        res.json({success,token});
     } catch (error) {
         res.status(500).json({ success: false, message: "Internal Server Error", error: error.message })
     }
@@ -71,7 +72,8 @@ router.post('/login', [
         const data = { user: { id: user.id } };
 
         const token = jwt.sign(data, JWT_SECRET);
-        res.json({token});
+        const success = true;
+        res.json({success,token});
 
 
 
